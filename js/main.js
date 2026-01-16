@@ -7,8 +7,15 @@ const biciclette = [
   { nome: "bici", peso_kg: 5 },
 ];
 
-biciclette.sort((a, b) => a.peso_kg - b.peso_kg);
-console.log(biciclette[1].peso_kg);
+let biciLeggera = biciclette[0];
+
+for (let i = 1; i < biciclette.length; i++) {
+  if (biciclette[i].peso_kg < biciLeggera.peso_kg) {
+    biciLeggera = biciclette[i];
+  }
+}
+
+console.log(biciLeggera.peso_kg);
 
 //* Snack 2
 
@@ -28,4 +35,6 @@ for (let scquadra of squadre) {
   scquadra.falli = randomNumber(2, 10);
 }
 
-console.table(squadre)
+const squadreFalli = squadre.map(({ nome, falli }) => ({ nome, falli }));
+
+console.table(squadreFalli);
